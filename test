@@ -1,0 +1,3 @@
+#!/bin/bash
+bash compila
+lettuce -v 2 tests/features/ssga/
