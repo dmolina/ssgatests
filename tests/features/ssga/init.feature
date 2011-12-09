@@ -4,7 +4,7 @@ Feature: SSGA Init
     between the individuals are different. 
 
     Scenario: Init Population
-	Given I have a SSGA algorithm for dimension <dimension>
+	Given I have an SSGA algorithm for dimension <dimension>
 	When I init the population with <popsize> individuals 
 	Then the population size is <popsize>
 	Then dimension for each individual is <dimension>

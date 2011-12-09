@@ -16,11 +16,11 @@ domain = [-5, 5]
 popsize = 50
 dim = 10
 
-@step('I have a SSGA algorithm')
+@step('I have an SSGA algorithm')
 def have_configuration(step):
     world.ssga = SSGA(fitness,domain,dim,size=popsize)
 
-@step('I have a SSGA algorithm for dimension (\d+)')
+@step('I have an SSGA algorithm for dimension (\d+)')
 def have_configuration(step,dim):
     dim = int(dim)
     world.ssga = SSGA(fitness,domain,dim,size=popsize)
@@ -59,7 +59,7 @@ def fitness_not_same(step):
     fits = world.ssga.population_fitness()
     assert np.unique(fits).size == world.popsize, "Fitness values are equals"
 
-@step('I select parents with tournament size (\d+)')
+@step('I select the parents with tournament size (\d+)')
 def set_parents(step,tsize):
     world.nam_tsize=int(tsize)
 
@@ -70,12 +70,6 @@ def mother_parent_different(step,tests):
     for i in range(tests):
 	[mother,parent]=world.ssga.getParents(world.nam_tsize)
 	assert mother != parent, "Are the same individual"
-
-@step('the distance between the parents is positive after (\d+) tests')
-def best_parent(step):
-    [motherId,parentId]=world.ssga.getParents(world.nam_tsize)
-    population = world.ssga.population()
-
 
 @step('the distance between parents is the longest')
 def best_parent(step):
@@ -118,6 +112,7 @@ def when_i_use_in_crossover_pseudorandoms_0(step, expected_random):
     world.patchRandom = patch('earandom.randreal', spec=True)
     world.random = world.patchRandom.start()
     expected_random = float(expected_random)
+#    print "Random: %f" %expected_random
     world.random.return_value = expected_random*np.ones(dim)
 #    world.patchRandom.stop()
 
@@ -139,8 +134,13 @@ def children_equals(self,strother):
     else:
 	assert False, "Error, criterion '%s' is not known" %strother
  
+#    print "\nMother:"
 #    print world.mother
+#    print "Parent:"
 #    print world.parent
+#    print "%s :" %strother
+#    print other
+#    print "Children:"
 #    print world.children
 #    print "\n"
     assert (world.children == other).all(), "Children is not equals to the '%s' of its parents" %strother

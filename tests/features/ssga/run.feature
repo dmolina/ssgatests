@@ -4,8 +4,8 @@ Feature: SSGA run
     it its elitism. 
 
     Scenario: SSGA runs implies a good 
-	Given I have a SSGA algorithm
-	When I init the population with <population_size>
+	Given I have an SSGA algorithm
+	When I init the population with <population_size> individuals
 	When I run the algorithm during <num_itera> iterations
 	Then they were evaluated <num_eval> solutions
 
@@ -16,9 +16,9 @@ Feature: SSGA run
 	|    50           |   2500    |   2500   |
 	|    50           |    100    |    100   |
 
-    Scenario: Run of a SSGA the population evolutes well
-	Given I have a SSGA algorithm
-	When I init the population with 50
+    Scenario: Run of an SSGA the population evolutes well
+	Given I have an SSGA algorithm
+	When I init the population with 50 individuals
 	When I study the evolution of the <individual> individual
 	When I run the algorithm during <num_itera> iterations
 	Then its fitness is always better
