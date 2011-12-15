@@ -1,5 +1,5 @@
 Feature: SSGA Crossover
-    Check for BLX-0 than a crossover of a individual with itself is the same
+    Check for BLX-0 that a crossover of a individual with itself is the same
     parent, and that offspring of a crossover are always between their
     parents
 

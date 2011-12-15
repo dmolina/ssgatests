@@ -3,7 +3,7 @@ Feature: SSGA run
     than the evaluations number is the right, and that
     it its elitism. 
 
-    Scenario: SSGA runs implies a good 
+    Scenario: SSGA actually use the maximum evaluation number
 	Given I have an SSGA algorithm
 	When I init the population with <population_size> individuals
 	When I run the algorithm during <num_itera> iterations
