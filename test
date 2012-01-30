@@ -1,4 +1,4 @@
 #!/bin/bash
-bash compila
+bash compile
 #lettuce -v 2 tests/features/ssga/
 lettuce -v 4 tests/features/ssga/
